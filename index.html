@@ -207,9 +207,90 @@
       min-height: 60px;
       font-family: Arial, sans-serif;
     }
+    
+    /* כפתור הדפסה */
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 12px 20px;
+      background: #9C27B0;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    
+    .print-btn:hover {
+      background: #7B1FA2;
+    }
+    
+    /* עיצוב להדפסה */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      
+      .print-btn,
+      .guest-input,
+      .add-house-btn,
+      .delete-house-btn,
+      .add-room-btn,
+      .room-header button,
+      .guest-item button {
+        display: none !important;
+      }
+      
+      .container {
+        display: block;
+        max-width: 100%;
+      }
+      
+      .column {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        margin-bottom: 30px;
+        page-break-inside: avoid;
+      }
+      
+      .house {
+        page-break-inside: avoid;
+        border: 2px solid #000;
+        margin-bottom: 20px;
+      }
+      
+      .room {
+        page-break-inside: avoid;
+      }
+      
+      input {
+        border: none !important;
+        background: transparent !important;
+        font-weight: bold;
+      }
+      
+      textarea {
+        border: 1px solid #ddd !important;
+        background: transparent !important;
+        min-height: auto !important;
+      }
+      
+      h2 {
+        border-bottom: 2px solid #000;
+        padding-bottom: 10px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- כפתור הדפסה -->
+  <button class="print-btn" onclick="window.print()">🖨️ הדפס הכל</button>
+  
   <div class="container">
     <!-- עמודת אורחים -->
     <div class="column">
